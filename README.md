@@ -3,11 +3,8 @@ JSONShadowTool
 
 The JSONShadow Tool
 
-A simple crude tool for creating quick shadowed JSON files
+NEW, now packaged into executable jar.
 
-main function is in JSONShadow.java
+Follow instructions in ActionList.txt to specify which files and values are to be shadowed
 
-Recommended you load it into eclipse and run from there, it handles all compiling for you. 
-
-Unless you wish to change the functionality of the program, you should only have to modify ActionList.java. This does not require
-any specific java knowledge. 
+If you have any questions or requests, ask them in uberent forum, as I will not be monitering this page closely. 
