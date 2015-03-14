@@ -22,10 +22,19 @@ public class FileTree {
 		File[] files = file.listFiles();
 		for (int i=0; i<files.length; i++) {
 			//System.out.println(files[i].getName());
-			FileNode child = new FileNode(files[i].getName());
-			node.addChild(child);
-			if (files[i].isDirectory())
-				buildTree(child);
+			boolean valid = true;
+			for (int j=0; j<ActionLists.excludelist.size(); j++) {
+				if (files[i].getAbsolutePath().contains(ActionLists.excludelist.get(j))) {
+					valid = false;
+					break;
+				}
+			}
+			if (valid) {
+				FileNode child = new FileNode(files[i].getName());
+				node.addChild(child);
+				if (files[i].isDirectory())
+					buildTree(child);
+			}
 		}
 	}
 }

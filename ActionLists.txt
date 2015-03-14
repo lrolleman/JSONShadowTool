@@ -4,7 +4,7 @@
 // moddir: the mod directory
 //
 // ex:
-//	srcdir = C:\Program Files (x86)\Uber Entertainment\Planetary Annihilation Launcher\Planetary Annihilation\PTE\media
+//	srcdir = C:\Program Files (x86)\Uber Entertainment\Planetary Annihilation Launcher\Planetary Annihilation\stable\media
 //	moddir = C:\Users\USERNAME\AppData\Local\Uber Entertainment\Planetary Annihilation\server_mods\com.nixtempestas.antipopcorn
 //
 // start new list with { "JSON key", "value", "type"
@@ -27,6 +27,9 @@
 // }
 srcdir = C:\Program Files (x86)\Uber Entertainment\Planetary Annihilation Launcher\Planetary Annihilation\PTE\media
 moddir = C:\Users\Lyle\AppData\Local\Uber Entertainment\Planetary Annihilation\server_mods\com.nixtempestas.antipopcorn
+exclude {
+	anim
+}
 
 	{ "max_health", "2", "multiply"
 		"air_scout.json"
@@ -35,6 +38,7 @@ moddir = C:\Users\Lyle\AppData\Local\Uber Entertainment\Planetary Annihilation\s
 		"fabrication_aircraft.json"
 		"fabrication_aircraft_adv.json"
 		"fighter.json"
+		"fighter_adv.json"
 		"gunship.json"
 		"transport.json"
 		"aa_missile_vehicle.json"
@@ -47,8 +51,8 @@ moddir = C:\Users\Lyle\AppData\Local\Uber Entertainment\Planetary Annihilation\s
 		"bot_tactical_missile.json"
 		"fabrication_bot.json"
 		"fabrication_bot_adv.json"
-		"fabrication_bot_combat.json"
-		"fabrication_bot_combat_adv.json"
+		//"fabrication_bot_combat.json"
+		//"fabrication_bot_combat_adv.json"
 		"fabrication_vehicle.json"
 		"fabrication_vehicle_adv.json"
 		"land_scout.json"
@@ -66,28 +70,39 @@ moddir = C:\Users\Lyle\AppData\Local\Uber Entertainment\Planetary Annihilation\s
 		"destroyer.json"
 		"fabrication_ship.json"
 		"fabrication_ship_adv.json"
+		"fabrication_sub.json"
 		"frigate.json"
 		"missile_ship.json"
 		"tank_armor.json", "1.5"
 		"tank_heavy_armor.json", "1.5"
 		"sea_scout.json"
+		"nuclear_sub.json"
+		"attack_sub.json"
+	}
+	{ "rate_of_fire", "2", "multiply"
+		"laser_defense_tool_weapon.json", 
+		"laser_defense_adv_tool_weapon.json"
+		"laser_defense_single_tool_weapon.json"
+		"aa_missile_vehicle_tool_weapon.json", "1.5"
 	}
 	{ "damage", "2", "multiply"
 		"air_defense_ammo.json"
 		"air_defense_adv_ammo.json"
 		"artillery_long_ammo.json"
 		"artillery_short_ammo.json"
-		"laser_defense_ammo.json"
-		"laser_defense_adv_ammo.json"
+		//"laser_defense_ammo.json"
+		//"laser_defense_adv_ammo.json"
 		"tactical_missile_launcher_ammo.json"
-		"laser_defense_single_ammo.json"
-		"defense_satellite_ammo.json"
+		//"laser_defense_single_ammo.json"
+		"defense_satellite_ammo_ground.json"
+		"defense_satellite_ammo_orbital.json"
 		"ion_defense_ammo.json"
 		"torpedo_launcher_ammo.json"
 		"torpedo_launcher_adv_ammo.json"
 		"base_commander_ammo.json"
 		"base_commander_aa_ammo.json"
 		"base_commander_torpedo_ammo.json"
+		"air_pbaoe.json"
 		//"cannon_uber.json"
 	}
 	{ "splash_damage", "2", "multiply"
@@ -96,10 +111,6 @@ moddir = C:\Users\Lyle\AppData\Local\Uber Entertainment\Planetary Annihilation\s
 		"base_commander_aa_ammo.json"
 		"artillery_short_ammo.json"
 		//"cannon_uber.json"
-	}
-	{ "build_metal_cost", "0.5", "multiply"
-		"fabrication_bot_combat.json"
-		"fabrication_bot_combat_adv.json"
 	}
 	{ "max_range", "2", "multiply"
 		"fabrication_bot_combat_build_arm.json"

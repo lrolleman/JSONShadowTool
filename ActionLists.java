@@ -12,10 +12,12 @@ public class ActionLists {
 	
 	public static String srcdir;
 	public static String moddir;
+	public static ArrayList<String> excludelist;
 	
 	public static void populateLists() {
 		mlist = new ArrayList<ArrayList<ArrayList<String>>>();
 		alist = new ArrayList<ArrayList<ArrayList<String>>>();
+		excludelist = new ArrayList<String>();
 		File infile = new File("ActionLists.txt");
 		String line;
 		try {
@@ -32,6 +34,10 @@ public class ActionLists {
 				} else if (line.startsWith("moddir")) {
 					int mindex = line.indexOf("=");
 					moddir = line.substring(mindex+1).trim();
+				} else if (line.startsWith("exclude")) {
+					while (!(line = reader.readLine()).startsWith("}")) {
+						excludelist.add(line.trim());
+					}
 				}
 				else {
 					if (line.startsWith("{")) {

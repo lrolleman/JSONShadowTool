@@ -90,7 +90,7 @@ public class ValueChanger {
 	public void change(String id, String value) {
 		int iindex = filecontents.indexOf("\"" + id + "\"");
 		int cindex = filecontents.indexOf(":", iindex);
-		int coindex = filecontents.indexOf(",", cindex);
+		int coindex = filecontents.indexOf(",", cindex + value.length());
 		String fsplit = filecontents.substring(0, cindex+1);
 		String ssplit = filecontents.substring(coindex);
 		//System.out.println(fsplit);
@@ -106,11 +106,11 @@ public class ValueChanger {
 		}
 	}
 	
-	public Integer getValue(String id) {
+	public Double getValue(String id) {
 		int iindex = filecontents.indexOf("\"" + id + "\"");
 		int cindex = filecontents.indexOf(":", iindex);
 		int coindex = filecontents.indexOf(",", cindex);
 		
-		return Integer.parseInt(filecontents.substring(cindex+1, coindex));
+		return Double.parseDouble(filecontents.substring(cindex+1, coindex));
 	}
 }

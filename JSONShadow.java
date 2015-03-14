@@ -16,29 +16,46 @@ public class JSONShadow {
 	public static void main(String[] args) {
 			ActionLists.populateLists();
 			FileTree src = new FileTree(ActionLists.srcdir);
+			FileTree dest = new FileTree(ActionLists.moddir);
 
 			for (int i=0; i<ActionLists.mlist.size(); i++) {
 				for (int j=1; j<ActionLists.mlist.get(i).size(); j++) {
-					String srcpath = src.search(ActionLists.mlist.get(i).get(j).get(0)).getPath();
-					String modext = srcpath.substring(ActionLists.srcdir.length());
+					String srcpath;
+					String modext;
+					try {
+						srcpath = dest.search(ActionLists.mlist.get(i).get(j).get(0)).getPath();
+						modext = srcpath.substring(ActionLists.moddir.length());
+					} catch (NullPointerException e) {
+						srcpath = src.search(ActionLists.mlist.get(i).get(j).get(0)).getPath();
+						modext = srcpath.substring(ActionLists.srcdir.length());
+					}
 					System.out.print(modext);
 					ValueChanger vc = new ValueChanger(srcpath, ActionLists.moddir + modext);
 					if (ActionLists.mlist.get(i).get(j).size() == 2) {
 						System.out.println(" | " + ActionLists.mlist.get(i).get(0).get(0) + " * " + ActionLists.mlist.get(i).get(j).get(1));
 						vc.change(ActionLists.mlist.get(i).get(0).get(0),
-								(int) (Double.parseDouble(ActionLists.mlist.get(i).get(j).get(1))*vc.getValue(ActionLists.mlist.get(i).get(0).get(0))));
+								(Double.parseDouble(ActionLists.mlist.get(i).get(j).get(1))*vc.getValue(ActionLists.mlist.get(i).get(0).get(0))));
 					} else {
 						System.out.println(" | " + ActionLists.mlist.get(i).get(0).get(0) + " * " + ActionLists.mlist.get(i).get(0).get(1));
 						vc.change(ActionLists.mlist.get(i).get(0).get(0),
-								(int) (Double.parseDouble(ActionLists.mlist.get(i).get(0).get(1))*vc.getValue(ActionLists.mlist.get(i).get(0).get(0))));
+								(Double.parseDouble(ActionLists.mlist.get(i).get(0).get(1))*vc.getValue(ActionLists.mlist.get(i).get(0).get(0))));
 					
 					}
 				}
 			}
 			for (int i=0; i<ActionLists.alist.size(); i++) {
 				for (int j=1; j<ActionLists.alist.get(i).size(); j++) {
-					String srcpath = src.search(ActionLists.alist.get(i).get(j).get(0)).getPath();
-					String modext = srcpath.substring(ActionLists.srcdir.length());
+					String srcpath;
+					String modext;
+					try {
+						srcpath = dest.search(ActionLists.alist.get(i).get(j).get(0)).getPath();
+						modext = srcpath.substring(ActionLists.moddir.length());
+					} catch (NullPointerException e) {
+						srcpath = src.search(ActionLists.alist.get(i).get(j).get(0)).getPath();
+						modext = srcpath.substring(ActionLists.srcdir.length());
+					}
+					//System.out.println(srcpath);
+					
 					System.out.print(modext);
 					ValueChanger vc = new ValueChanger(srcpath, ActionLists.moddir + modext);
 					if (ActionLists.alist.get(i).get(j).size() == 2) {
